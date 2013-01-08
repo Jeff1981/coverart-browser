@@ -7,6 +7,8 @@ Browse your coverart albums in Rhythmbox v2.96 and later
 
 -----------
 
+**Please help out with translating - skip to the end for details**
+
 Summary: whats new in this release
 
  - Playlist support: display coverart from a playlist, queue & main library
@@ -172,8 +174,13 @@ We need you to help us translate the english text to your native language.
 
 Don't worry - it is easier that you think.
 
-Instructions are in the file TRANSLATE_README. Post a link to the file as a new issue, or
-if you are feeling generous - fork and push a pull-request. Thanks!
+Just visit:
+
+ - https://translations.launchpad.net/coverartbrowser
+
+Remember to set your preferred language and then just submit your translation.
+
+Alternatively look at TRANSLATE_README for an alternative method.
 
 If they look scary - just email me (foss dot freedom at gmail dot com) and I'll send you the 
 file that needs to be translated - it is less than 20 text strings so it should only take a
