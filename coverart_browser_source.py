@@ -25,6 +25,7 @@ from gi.repository import Gio
 from gi.repository import Gdk
 from gi.repository import Gtk
 from gi.repository import RB
+from gi.repository import GtkClutter
 
 from coverart_album import AlbumManager
 from coverart_entryview import CoverArtEntryView as EV
@@ -43,6 +44,7 @@ from coverart_controllers import SortOrderToggleController
 from coverart_controllers import AlbumSearchEntryController
 from coverart_controllers import AlbumQuickSearchController
 from coverart_utils import Theme
+from coverart_coverflow import CoverartCoverflow
 from stars import ReactiveStar
 
 class CoverArtBrowserSource(RB.Source):
@@ -73,6 +75,9 @@ class CoverArtBrowserSource(RB.Source):
         self.last_selected_album = None
         self.click_count = 0
 
+        #initialise GtkClutter
+        GtkClutter.init([])
+        
     def _connect_properties(self):
         '''
         Connects the source properties to the saved preferences.
@@ -244,6 +249,9 @@ class CoverArtBrowserSource(RB.Source):
         self.covers_view.connect('drag-data-received',
             self.on_drag_data_received)
 
+        self.coverflow_box = CoverartCoverflow()
+        self.page.pack_start(self.coverflow_box, True, True, 0)
+
         # setup entry-view objects and widgets
         y = self.gs.get_value(self.gs.Path.PLUGIN,
             self.gs.PluginKey.PANED_POSITION)
@@ -340,6 +348,8 @@ class CoverArtBrowserSource(RB.Source):
             # it should only be enabled if no cover request is going on
             self.source_menu_search_all_item.set_sensitive(True)
 
+        self.coverflow_box.update_covers(self.covers_view)
+        
         # enable sorting on the entryview
         self.entry_view.set_columns_clickable(True)
         self.shell.props.library_source.get_entry_view().set_columns_clickable(
