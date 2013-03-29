@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ASCII'?>
+<!-- user defined file - located in ~/.local/share/rhythmbox/plugins/coverart_browser/img/usericons -->
+<root>
+    <!-- default genre names are in the system popups.xml file (../popups.xml) -->
+    <genre>
+        <alt>
+            <!-- this alternate genre will have the same icon as "easy listening" -->
+            <alt genre="oldies">christmas</alt><alt genre="1">second</alt></alt>
+
+        <index>2</index>
+    </genre>
+</root>
